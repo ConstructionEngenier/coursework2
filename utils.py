@@ -19,3 +19,12 @@ def get_post_by_pk(post_pk):
         if post["pk"] == post_pk:
             return post
     return None
+
+
+def get_post_comments_by_pk(post_pk):
+    comments = data_load("data/comments.json")
+    post_comments = []
+    for comment in comments:
+        if comment["post_id"] == post_pk:
+            post_comments.append(comment)
+    return post_comments

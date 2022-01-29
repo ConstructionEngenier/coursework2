@@ -13,7 +13,7 @@ def page_index():
 @app.route('/posts/<int:post_pk>',)
 def page_post(post_pk):
     post = get_post_by_pk(post_pk)
-    return render_template("post.html")
+    return render_template("post.html", post=post)
 
 
 app.run(debug=True)

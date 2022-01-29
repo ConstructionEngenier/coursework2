@@ -8,8 +8,25 @@ def data_load(link):
     return data
 
 
-def get_posts():
+# def get_posts():
+#     posts = data_load("data/data.json")
+#     return posts
+
+
+def get_posts_with_comments_count():
     posts = data_load("data/data.json")
+    comments = data_load("data/comments.json")
+
+    for index, post in enumerate(posts):
+
+        comments_count = 0
+
+        for comment in comments:
+            if comment["post_id"] == post["pk"]:
+                comments_count += 1
+
+        posts[index]["comments"] = comments_count
+
     return posts
 
 

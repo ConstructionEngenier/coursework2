@@ -1,12 +1,13 @@
 from flask import Flask, render_template, request
-from utils import get_posts, get_post_by_pk, get_post_comments_by_pk
+from utils import get_posts_with_comments_count, get_post_by_pk, \
+    get_post_comments_by_pk
 
 app = Flask(__name__)
 
 
 @app.route('/',)
 def page_index():
-    posts = get_posts()
+    posts = get_posts_with_comments_count()
     return render_template("index.html", posts=posts)
 
 

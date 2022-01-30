@@ -67,3 +67,14 @@ def search_posts(word):
         posts[index]["comments"] = comments_count
 
     return searched_posts
+
+
+def get_post_by_name(poster_name):
+    posts = get_posts_with_comments_count()
+    posts_by_name = []
+
+    for post in posts:
+        if poster_name == post["poster_name"]:
+            posts_by_name.append(post)
+
+    return posts_by_name

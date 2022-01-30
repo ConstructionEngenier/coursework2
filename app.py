@@ -39,5 +39,5 @@ def page_user_feed(name):
 
     return render_template("user-feed.html", posts=posts)
 
-if __name__== "__main__"
+if __name__== "__main__":
     app.run()

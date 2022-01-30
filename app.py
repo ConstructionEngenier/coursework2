@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 from utils import get_posts_with_comments_count, get_post_by_pk, \
-    get_post_comments_by_pk
+    get_post_comments_by_pk, search_posts
 
 app = Flask(__name__)
 
@@ -21,6 +21,16 @@ def page_post(post_pk):
                            comments=comments,
                            comments_count=comments_count
                            )
+
+
+@app.route('/search',)
+def page_search():
+    word = request.args['s']
+
+    posts = search_posts(word)
+    posts_count = len(posts)
+
+    return render_template("search.html", word=word, posts=posts, posts_count=posts_count)
 
 
 app.run(debug=True)
